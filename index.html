@@ -1,77 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
+    <div class="wrapper-background">
+      <script
+        src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"
+      ></script>
 
-<div class="wrapper-background">
-   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-
-    <header class="text-white modal-header w-100 text-xl-center" id="title">
+      <header class="text-white modal-header w-100 text-xl-center" id="title">
         <h1>SEARCH UNI</h1>
-    </header>
+      </header>
 
-    <div id="grid-wrapper">
+      <div id="grid-wrapper">
+        <div class="page-header header container-fluid jumbotron" id="welcome">
+          <h1>Which country are you interested in?</h1>
+          <br />
+          <h3>
+            Get info about Univeristies based on Country and name/city filter.
+          </h3>
+        </div>
 
-    <div class="page-header header container-fluid jumbotron" id="welcome">
-        <h1>Which country are you interested in?</h1><br>
-        <h3>Get info about Univeristies based on Country and name/city filter.</h3>
-    </div>
-
-    <section id="input-section" class="jumbotron">
-
-        <div class="wrapper-inputs">
+        <section id="input-section" class="jumbotron">
+          <div class="wrapper-inputs">
             <label for="basic-url">Country Filter</label>
 
             <div class="input-group mb-3">
-                <div class="input-group-prepend">
+              <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon3">COUNTRY</span>
-                </div>
-                <input id="countryFilterInput" class="form-control" aria-describedby="basic-addon3">
-                <button type="submit" id="submit" class="btn btn-secondary btn-block">SUBMIT</button>
+              </div>
+              <input
+                id="countryFilterInput"
+                class="form-control"
+                aria-describedby="basic-addon3"
+              />
+              <button
+                type="submit"
+                id="submit"
+                class="btn btn-secondary btn-block"
+              >
+                SUBMIT
+              </button>
             </div>
 
             <label for="basic-url">What are you looking for?</label>
 
             <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon3">Your Filter</span>
-                </div>
-                <input id="filerInput" class="form-control" aria-describedby="basic-addon3">
-                <!-- <button class="btn btn-secondary btn-block" type="submit" id="submit" onclick="filterUni()">FILTER</button> -->
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3"
+                  >Your Filter</span
+                >
+              </div>
+              <input
+                id="filerInput"
+                class="form-control"
+                aria-describedby="basic-addon3"
+              />
+              <!-- <button class="btn btn-secondary btn-block" type="submit" id="submit" onclick="filterUni()">FILTER</button> -->
             </div>
+          </div>
+        </section>
+      </div>
+
+      <section id="response-section">
+        <blockquote class="blockquote text-center">
+          <div class="mb-0" id="counter">0</div>
+          <footer class="blockquote-footer">
+            That's how many responses we've found.
+          </footer>
+        </blockquote>
+
+        <div id="response">
+          <ul id="uni-list">
+            <!-- class="d-flex flex-row justify-content-lg-around flex-wrap list-group" -->
+          </ul>
         </div>
+      </section>
 
-    </section>
-
+      <script src="getApi.js"></script>
     </div>
-
-    <section id="response-section">
-
-    <blockquote class="blockquote text-center">
-        <div class="mb-0" id="counter">0</div>
-        <footer class="blockquote-footer">That's how many responses we've found.</footer>
-    </blockquote>
-
-    <div id="response">
-        <ul id="uni-list" 
-        >
-                <!-- class="d-flex flex-row justify-content-lg-around flex-wrap list-group" -->
-        </ul>
-    </div>
-
-    </section>
-
-    <script src="getApi.js"></script>
-</div>
-
-</body>
+  </body>
 </html>
